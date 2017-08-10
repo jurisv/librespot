@@ -4,13 +4,10 @@ applications to use Spotify's service, without using the official but
 closed-source libspotify. Additionally, it will provide extra features
 which are not available in the official library.
 
-**I will be very busy with other stuff until July, and won't be able to
-dedicate much time to librespot. Please keep using it and open issues,
-but it's likely I won't be able to answer them until then. Non-trivial
-pull requests will probably not be reviewed either.**
-
 ## Building
-Rust 1.15.0 or later is required to build librespot.
+Rust 1.17.0 or later is required to build librespot.
+
+**If you are building librespot on macOS, the homebrew provided rust may fail due to the way in which homebrew installs rust. In this case, uninstall the homebrew version of rust and use [rustup](https://www.rustup.rs/), and librespot should then build.** 
 
 It also requires a C, with portaudio.
 
@@ -24,7 +21,7 @@ On Fedora systems, the following command will install these dependencies :
 sudo dnf install portaudio-devel make gcc
 ```
 
-On OS X, using homebrew :
+On macOS, using homebrew :
 ```shell
 brew install portaudio
 ```
@@ -69,7 +66,7 @@ Build the image from the root of the project with the following command :
 $ docker build -t librespot-cross -f contrib/Dockerfile .
 ```
 
-The resulting image can be used to build librespot for linux x86_64, armhf and armel.
+The resulting image can be used to build librespot for linux x86_64, armhf (compatible e. g. with Raspberry Pi 2 or 3, but not with Raspberry Pi 1 or Zero) and armel.
 The compiled binaries will be located in /tmp/librespot-build
 
 ```
